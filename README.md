@@ -1,10 +1,10 @@
-# Redensity Mobile
+# Redensity
 
-Redensity Mobile adalah aplikasi Android **gratis dan open source** untuk **mengecilkan resolusi dan density layar** (dpi) — mis. ke 720p / 540p — **tanpa root**, lewat **Shizuku**. Cocok untuk HP lama, menghemat baterai, atau memperingan UI yang berat.
+Redensity adalah aplikasi Android **gratis dan open source** untuk **mengecilkan resolusi dan density layar** (dpi) — mis. ke 720p / 540p — **tanpa root**, lewat **Shizuku**. Cocok untuk HP lama, menghemat baterai, atau memperingan UI yang berat.
 
 Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tidak cocok, tampilan kembali otomatis.
 
-![Redensity Mobile](docs/screenshot-main.png)
+![Redensity](docs/screenshot-main.png)
 
 ## Fitur
 - Tanpa root (lewat [Shizuku](https://github.com/RikkaApps/Shizuku), atau via ADB dari PC)
@@ -25,10 +25,10 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 - Wireless debugging perlu diaktifkan lagi setelah HP restart (keterbatasan Android, bukan app-nya)
 
 ## Instalasi
-1. Unduh `RedensityMobile-v1.0.apk` dari [Releases](../../releases).
+1. Unduh `Redensity-v1.0.apk` dari [Releases](../../releases).
 2. Install (izinkan "install dari sumber tidak dikenal" bila diminta).
 3. Install dan jalankan **Shizuku**.
-4. Buka Redensity Mobile → izinkan akses Shizuku.
+4. Buka Redensity → izinkan akses Shizuku.
 
 ## Cara pakai
 1. Ketuk preset (**360p** … **1440p**) (atau geser slider density).
@@ -40,13 +40,13 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 ## Build dari source
 ```
 git clone <repo ini>
-cd RedensityMobile
+cd Redensity
 ./gradlew assembleDebug     # atau assembleRelease (butuh release.keystore)
 ```
 Butuh JDK 17 + Android SDK (compileSdk 35). Lihat `local.properties.example`. Jangan pernah commit `release.keystore` (sudah masuk `.gitignore`).
 
 ## Keamanan
-Redensity Mobile hanya mengubah `wm size` / `wm density` — perintah yang sama dipakai ADB shell. Tidak bisa merusak HP: kembalikan kapan pun lewat app, atau restart (setelah restart mungkin perlu `wm size reset` via PC). Beberapa ROM mungkin tampil aneh pada resolusi rendah — makanya ada uji coba 15 detik.
+Redensity hanya mengubah `wm size` / `wm density` — perintah yang sama dipakai ADB shell. Tidak bisa merusak HP: kembalikan kapan pun lewat app, atau restart (setelah restart mungkin perlu `wm size reset` via PC). Beberapa ROM mungkin tampil aneh pada resolusi rendah — makanya ada uji coba 15 detik.
 
 ## Lisensi
 MIT — lihat [LICENSE](LICENSE).

@@ -1,13 +1,13 @@
-# Kontrol Redensity Mobile dari PC
+# Kontrol Redensity dari PC
 
 Tanpa root, lewat ADB. Semua perintah berlaku **langsung** (bukan mode uji coba 15 detik di HP).
-Semua perintah butuh Shizuku berjalan di HP dan Redensity Mobile sudah diizinkan aksesnya.
+Semua perintah butuh Shizuku berjalan di HP dan Redensity sudah diizinkan aksesnya.
 
 > Disarankan: coba dulu `adb shell wm size` / `wm density` untuk lihat keadaan, dan `--es action reset` untuk kembali normal.
 
 ## Prasyarat
 - Wireless debugging atau USB debugging aktif di HP
-- Redensity Mobile sudah terinstall + Shizuku berjalan (lihat README)
+- Redensity sudah terinstall + Shizuku berjalan (lihat README)
 - `adb` tersedia di PC
 
 ### USB
