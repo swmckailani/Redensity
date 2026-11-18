@@ -10,7 +10,7 @@ import android.os.IBinder
 import android.os.Handler
 import android.os.Looper
 import android.content.res.Configuration
-import java.util.Locale
+
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -37,8 +37,7 @@ class MainActivity : Activity() {
     private lateinit var profileList: ListView
 
     private var profileItems: List<Profiles.Profile> = emptyList()
-    private lateinit var themeModeButton: Button
-    private lateinit var languageModeButton: Button
+
 
     /** Dialog konfirmasi gaya Windows: hitungan mundur + tombol SIMPAN/KEMBALIKAN. */
     private var trialDialog: AlertDialog? = null
@@ -116,36 +115,6 @@ class MainActivity : Activity() {
         recreate()
     }
 
-    override fun attachBaseContext(newBase: android.content.Context) {
-        var ctx = newBase
-        val prefs = newBase.getSharedPreferences("redensity", android.content.Context.MODE_PRIVATE)
-
-        // Tema: bungkus context, JANGAN applyOverrideConfiguration — di jalur recreate()
-        // resources sudah dibuat sehingga applyOverrideConfiguration melempar IllegalStateException.
-        val theme = prefs.getString("theme_mode", "system") ?: "system"
-        if (theme != "system") {
-            val config = Configuration(ctx.resources.configuration)
-            val night = if (theme == "dark") {
-                Configuration.UI_MODE_NIGHT_YES
-            } else {
-                Configuration.UI_MODE_NIGHT_NO
-            }
-            config.uiMode = (config.uiMode and Configuration.UI_MODE_NIGHT_MASK.inv()) or night
-            ctx = ctx.createConfigurationContext(config)
-        }
-
-        // Bahasa
-        val lang = prefs.getString("language", "system") ?: "system"
-        if (lang != "system") {
-            val locale = Locale(lang)
-            Locale.setDefault(locale)
-            val config = Configuration(ctx.resources.configuration)
-            config.setLocale(locale)
-            ctx = ctx.createConfigurationContext(config)
-        }
-        super.attachBaseContext(ctx)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -174,13 +143,6 @@ class MainActivity : Activity() {
             true
         }
         findViewById<Button>(R.id.btnSaveProfile).setOnClickListener { promptSaveProfile() }
-
-        themeModeButton = findViewById(R.id.btnThemeMode)
-        languageModeButton = findViewById(R.id.btnLanguageMode)
-        themeModeButton.text = themeModeLabel()
-        themeModeButton.setOnClickListener { cycleThemeMode() }
-        languageModeButton.text = languageModeLabel()
-        languageModeButton.setOnClickListener { cycleLanguageMode() }
 
         densitySlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -224,42 +186,6 @@ class MainActivity : Activity() {
         refreshStatus()
         refreshProfileList()
     }
-
-    private fun cycleThemeMode() {
-        val prefs = getSharedPreferences("redensity", MODE_PRIVATE)
-        val next = when (prefs.getString("theme_mode", "system")) {
-            "system" -> "dark"
-            "dark" -> "light"
-            else -> "system"
-        }
-        prefs.edit().putString("theme_mode", next).apply()
-        recreate()
-    }
-
-    private fun cycleLanguageMode() {
-        val prefs = getSharedPreferences("redensity", MODE_PRIVATE)
-        val next = when (prefs.getString("language", "system")) {
-            "system" -> "id"
-            "id" -> "en"
-            else -> "system"
-        }
-        prefs.edit().putString("language", next).apply()
-        recreate()
-    }
-
-    private fun languageModeLabel(): String =
-        when (getSharedPreferences("redensity", MODE_PRIVATE).getString("language", "system")) {
-            "id" -> getString(R.string.lang_id)
-            "en" -> getString(R.string.lang_en)
-            else -> getString(R.string.lang_system)
-        }
-
-    private fun themeModeLabel(): String =
-        when (getSharedPreferences("redensity", MODE_PRIVATE).getString("theme_mode", "system")) {
-            "dark" -> getString(R.string.theme_dark)
-            "light" -> getString(R.string.theme_light)
-            else -> getString(R.string.theme_system)
-        }
 
     override fun onResume() {
         super.onResume()

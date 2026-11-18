@@ -15,8 +15,8 @@ Every change can be **previewed for 15 seconds** — if it doesn't look right, t
 - One-tap presets: **360p / 480p / 540p / 720p / 1080p / 1440p** (2K asks for confirmation first — not recommended for gaming, may cause lag)
 - Density slider (120–480 dpi)
 - **Profiles**: your own saved profiles (renameable, deletable) - the 2K button and any profile above 1080p ask for confirmation
-- **Light / Dark theme** (system, light, or dark)
-- **Bahasa Indonesia & English** (system, manual switch)
+- **Dark theme** (permanent)
+- **Bahasa Indonesia**
 - **PC control via ADB**: apply settings from a computer over USB or wireless debugging (see [docs/PC-CONTROL.md](docs/PC-CONTROL.md)) — also over QR pairing with RedensityDesktop / ADBMOD
 - **Reset** button to return to factory resolution any time
 
@@ -38,8 +38,7 @@ Every change can be **previewed for 15 seconds** — if it doesn't look right, t
 4. **Reset to default resolution** any time.
 5. **Profiles**: tap to apply, long-press to delete.
    "Save current settings as profile" stores your current size + density.
-6. Theme / language buttons cycle: System → Dark → Light / System → Indonesia → English.
-
+6. 
 ## Build from source
 ```
 git clone <this repo>
@@ -66,8 +65,8 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 - Preset sekali ketuk: **360p / 480p / 540p / 720p / 1080p / 1440p** (2K meminta konfirmasi dulu — tidak disarankan untuk gaming, bisa ngelag)
 - Slider density (120–480 dpi)
 - **Profil**: profil buatan sendiri (bisa disimpan, diterapkan, dan dihapus) - tombol 2K dan profil di atas 1080p meminta konfirmasi
-- **Mode terang / gelap** (sistem, terang, atau gelap)
-- **Bahasa Indonesia & Inggris**
+- **Mode gelap** (permanen)
+- **Bahasa Indonesia**
 - **Kontrol dari PC via ADB**: langsung dari komputer lewat USB / wireless debugging (lihat [docs/PC-CONTROL.md](docs/PC-CONTROL.md)) — juga lewat QR pairing dengan RedensityDesktop / ADBMOD
 - Tombol **Reset** kapan pun kembali ke setelan awal
 
@@ -88,7 +87,6 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 3. Ketuk **SIMPAN** untuk memakai, atau **KEMBALIKAN** (atau tunggu 15 detik) untuk kembali normal.
 4. **Reset ke resolusi asli** kapan pun.
 5. **Profil**: ketuk untuk menerapkan, tahan lama untuk menghapus profil buatan sendiri. "Simpan setelan sekarang sebagai profil" menyimpan resolusi + density saat ini.
-6. Tombol Tema/Bahasa bergiliran: Sistem → Gelap → Terang / Sistem → Indonesia → English.
 
 ## Build dari source
 ```
