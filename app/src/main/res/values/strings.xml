@@ -29,16 +29,16 @@
 
     <!-- Aksi -->
     <string name="section_resolution">Pilih resolusi</string>
-    <string name="btn_360p">Kecilkan ke 360p</string>
-    <string name="btn_480p">Kecilkan ke 480p</string>
-    <string name="btn_540p">Kecilkan ke 540p</string>
-    <string name="btn_720p">Kecilkan ke 720p</string>
-    <string name="btn_1080p">Kecilkan ke 1080p</string>
+    <string name="btn_360p">360p</string>
+    <string name="btn_480p">480p</string>
+    <string name="btn_540p">540p</string>
+    <string name="btn_720p">720p</string>
+    <string name="btn_1080p">1080p</string>
     <string name="warning_2k">Peringatan: 2K bisa ngelag saat gaming</string>
-    <string name="btn_reset">Reset ke resolusi asli</string>
+    <string name="btn_reset">Reset Resolusi</string>
     <string name="btn_refresh">Refresh status</string>
     <string name="section_profiles">Profil</string>
-    <string name="btn_save_profile">Simpan setelan sekarang sebagai profil</string>
+    <string name="btn_save_profile">SIMPAN PROFIL</string>
     <string name="section_density">Atur density (dpi)</string>
     <string name="density_value">Density: %1$d dpi</string>
 
@@ -64,7 +64,7 @@
     <string name="pc_trial_active">Redensity: uji coba sedang aktif — perintah PC ditolak</string>
     <string name="pc_shizuku_inactive">Redensity PC: Shizuku tidak aktif di HP</string>
     <string name="pc_reset_done">Redensity PC: kembali ke setelan bawaan</string>
-    <string name="btn_1440p">Besarkan ke 1440p (2K)</string>
+    <string name="btn_1440p">1440p</string>
     <string name="warning_2k_title">Terapkan resolusi 2K?</string>
     <string name="warning_2k_message">2K (QHD+) tidak disarankan untuk gaming — bisa ngelag. Tetap terapkan?</string>
     <string name="warning_2k_apply">Tetap terapkan</string>

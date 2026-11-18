@@ -37,7 +37,7 @@ Every change can be **previewed for 15 seconds** — if it doesn't look right, t
 3. Tap **SAVE** to keep, or **REVERT** (or just wait) to go back.
 4. **Reset to default resolution** any time.
 5. **Profiles**: tap to apply, long-press to delete.
-   "Save current settings as profile" stores your current size + density.
+   "SIMPAN PROFIL" stores your current size + density.
 6. 
 ## Build from source
 ```
@@ -86,7 +86,7 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 2. Muncul dialog konfirmasi di resolusi saat ini - ketuk **TERAPKAN**. Baru setelah itu layar berubah - muncul hitung mundur 15 detik.
 3. Ketuk **SIMPAN** untuk memakai, atau **KEMBALIKAN** (atau tunggu 15 detik) untuk kembali normal.
 4. **Reset ke resolusi asli** kapan pun.
-5. **Profil**: ketuk untuk menerapkan, tahan lama untuk menghapus profil buatan sendiri. "Simpan setelan sekarang sebagai profil" menyimpan resolusi + density saat ini.
+5. **Profil**: ketuk untuk menerapkan, tahan lama untuk menghapus profil buatan sendiri. "SIMPAN PROFIL" menyimpan resolusi + density saat ini.
 
 ## Build dari source
 ```

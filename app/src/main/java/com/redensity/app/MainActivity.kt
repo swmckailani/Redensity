@@ -262,6 +262,7 @@ class MainActivity : Activity() {
             .setCancelable(false)
             .setPositiveButton(getString(R.string.trial_save)) { _, _ -> saveTrial() }
             .setNegativeButton(getString(R.string.trial_revert)) { _, _ -> cancelTrial(manual = true) }
+            .setNeutralButton(getString(R.string.btn_reset)) { _, _ -> resetSize() }
             .show()
         mainHandler.postDelayed(trialTicker, 1000)
     }
@@ -720,10 +721,6 @@ class MainActivity : Activity() {
 
     private fun resetSize() {
         if (!ensurePermission()) return
-        if (isTrialPending()) {
-            Toast.makeText(this, getString(R.string.trial_finish_first), Toast.LENGTH_SHORT).show()
-            return
-        }
         Thread {
             if (ensureServiceBlocking() == null) {
                 runOnUiThread {
@@ -732,10 +729,16 @@ class MainActivity : Activity() {
                 }
                 return@Thread
             }
+            // Kalau sedang uji coba, batalkan dulu (kembali ke pra-trial).
+            if (Trial.load(this) != null) {
+                performRevert(getString(R.string.trial_reverted_msg))
+            }
+            // Lalu reset ke bawaan, apapun kondisinya.
             val densityResult = exec(arrayOf("wm", "density", "reset"))
             val sizeResult = exec(arrayOf("wm", "size", "reset"))
             val message = "-> wm size reset\n$sizeResult\n-> wm density reset\n$densityResult"
             runOnUiThread {
+                hideTrialDialog()
                 showOutput(message)
                 refreshStatus()
             }
