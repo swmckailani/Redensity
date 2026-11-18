@@ -11,6 +11,7 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 - Semua perangkat: resolusi dan aspek dibaca dari HP itu sendiri (16:9, 20:9, 4:3, tablet, dll — dengan `wm`)
 - **Tanya dulu, baru terapkan + uji coba 15 detik** — ala konfirmasi resolusi di Windows: konfirmasi sebelum diterapkan, lalu dialog hitung mundur (SIMPAN / KEMBALIKAN / RESET RESOLUSI) — kembali otomatis kalau diabaikan
 - Preset sekali ketuk: **360p / 480p / 540p / 720p / 1080p / 1440p** (1440p meminta konfirmasi dulu — tidak disarankan untuk gaming, bisa ngelag)
+  - Density custom per preset: **360p→160, 480p→180, 540p→200, 720p→260, 1080p→density bawaan HP, 1440p→560**
 - Slider density (120–480 dpi)
 - **Profil**: profil buatan sendiri (bisa disimpan, diterapkan, dan dihapus) — tombol 1440p dan profil di atas 1080p meminta konfirmasi
 - **Mode gelap** (permanen)

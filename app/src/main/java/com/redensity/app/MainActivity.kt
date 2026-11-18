@@ -341,6 +341,8 @@ class MainActivity : Activity() {
             // Gagal terapan — rollback best effort dan batalkan uji coba.
             exec(arrayOf("wm", "density", "reset"))
             exec(arrayOf("wm", "size", "reset"))
+            forceFullReconfigure()
+            restartSystemUI()
             Trial.clear(this)
             runOnUiThread {
                 Toast.makeText(this, getString(R.string.trial_read_failed), Toast.LENGTH_LONG).show()
@@ -372,11 +374,17 @@ class MainActivity : Activity() {
         // Density restore dulu (alasan sama: size memicu reconfigure berat).
         exec(Trial.densityRestoreCommand(snap.densityRaw))
         exec(Trial.sizeRestoreCommand(snap.sizeRaw))
+        // Kembali ke default? Paksa dua siklus reconfigure agar insets ikut reset.
+        if (!snap.sizeRaw.contains("Override") && !snap.densityRaw.contains("Override")) {
+            forceFullReconfigure()
+        }
+        restartSystemUI()
         Trial.clear(this)
         runOnUiThread {
             hideTrialDialog()
             showOutput(message)
             refreshStatus()
+            Toast.makeText(this, getString(R.string.reminder_reinflate), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -449,6 +457,32 @@ class MainActivity : Activity() {
             return false
         }
         return true
+    }
+
+    /** Force-stop SystemUI agar insets/gesture dihitung ulang setelah resolusi dikembalikan. */
+    private fun restartSystemUI() {
+        try {
+            exec(arrayOf("am", "force-stop", "com.android.systemui"))
+        } catch (_: Exception) {
+            // Best effort — jangan sampai menggagalkan alur reset.
+        }
+    }
+
+    /**
+     * Paksa dua siklus reconfigure setelah pindah ke default:
+     * tulis ulang nilai fisik sebagai override, lalu kosongkan lagi.
+     * Tanpa siklus kedua, HyperOS kadang menyimpan insets/gesture lama
+     * (gejala: UI terasa = setelan lama, gesture bawah memicu asisten).
+     */
+    private fun forceFullReconfigure() {
+        try {
+            physicalDensity().let { exec(arrayOf("wm", "density", it.toString())) }
+            physicalSize()?.let { (w, h) -> exec(arrayOf("wm", "size", "${w}x${h}")) }
+            exec(arrayOf("wm", "size", "reset"))
+            exec(arrayOf("wm", "density", "reset"))
+        } catch (_: Exception) {
+            // Best effort — biarkan gagal diam-diam.
+        }
     }
 
     private fun refreshStatus() {
@@ -562,6 +596,20 @@ class MainActivity : Activity() {
         showApplyConfirmation(widthPx >= 1440, targetDetail(widthPx)) { applyWidthConfirmed(widthPx) }
     }
 
+    /** Density custom per preset (bucket Android + tuning mobile-friendly). */
+    private fun presetDensity(widthPx: Int): Int {
+        val native = physicalDensityCache ?: physicalDensity()
+        return when (widthPx) {
+            360 -> 160
+            480 -> 180
+            540 -> 200
+            720 -> 260
+            1080 -> native
+            1440 -> 560
+            else -> native
+        }
+    }
+
     private fun applyWidthConfirmed(widthPx: Int) {
         if (!ensurePermission()) return
         Thread {
@@ -582,7 +630,6 @@ class MainActivity : Activity() {
             val current = parseSize(raw)
             val physical = physicalSize()
             val baseWidth = physical?.first ?: current?.first
-            val baseDensity = physicalDensity()
             val scale = if (baseWidth != null && baseWidth > 0) widthPx.toDouble() / baseWidth else 1.0
 
             val sizeTarget: Pair<Int, Int> = if (current != null) {
@@ -591,7 +638,7 @@ class MainActivity : Activity() {
             } else {
                 Pair(widthPx, widthPx * 2)
             }
-            val densityTarget = (baseDensity * scale).toInt().coerceIn(120, 640)
+            val densityTarget = presetDensity(widthPx)
 
             startTrial(sizeTarget, densityTarget, "${widthPx}p")
         }.start()
@@ -604,7 +651,7 @@ class MainActivity : Activity() {
         if (phys == null || phys.first <= 0 || base == null) return "${widthPx}p"
         val scale = widthPx.toDouble() / phys.first
         val h = evenRounded(phys.second * scale)
-        val d = (base * scale).toInt().coerceIn(120, 640)
+        val d = presetDensity(widthPx)
         return getString(R.string.apply_confirm_detail, widthPx, h, d)
     }
 
@@ -736,11 +783,14 @@ class MainActivity : Activity() {
             // Lalu reset ke bawaan, apapun kondisinya.
             val densityResult = exec(arrayOf("wm", "density", "reset"))
             val sizeResult = exec(arrayOf("wm", "size", "reset"))
-            val message = "-> wm size reset\n$sizeResult\n-> wm density reset\n$densityResult"
+            forceFullReconfigure()
+            restartSystemUI()
+            val message = "-> wm size reset\n$sizeResult\n-> wm density reset\n$densityResult\n-> SystemUI di-restart"
             runOnUiThread {
                 hideTrialDialog()
                 showOutput(message)
                 refreshStatus()
+                Toast.makeText(this, getString(R.string.reminder_reinflate), Toast.LENGTH_LONG).show()
             }
         }.start()
     }

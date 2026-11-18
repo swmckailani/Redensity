@@ -58,6 +58,7 @@
 
     <!-- Service / error -->
     <string name="service_not_connected">Shizuku service belum terhubung, coba lagi.</string>
+    <string name="reminder_reinflate">Tutup &amp; buka ulang aplikasi lain agar tampilannya kembali normal</string>
     <string name="shizuku_not_running">Shizuku belum berjalan. Aktifkan Shizuku dulu (wireless debugging / adb).</string>
 
     <!-- Kontrol PC -->
