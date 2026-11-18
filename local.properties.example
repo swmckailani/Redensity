@@ -1,0 +1,8 @@
+# Copy to local.properties — never commit it.
+# Release signing (assembleRelease):
+# keystore.file=D:/path/to/release.keystore
+# keystore.password=your-keystore-password
+# keystore.alias=redensity
+# keystore.keyPassword=your-key-password
+
+sdk.dir=C:/Users/WAFER/AppData/Local/Android/Sdk

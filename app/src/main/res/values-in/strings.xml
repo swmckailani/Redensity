@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Redensity</string>
+
+    <!-- Uji coba -->
+    <string name="trial_applying">Menerapkan uji coba: %1$s (15 detik)</string>
+    <string name="trial_save">SIMPAN</string>
+    <string name="trial_revert">KEMBALIKAN</string>
+    <string name="trial_countdown">Kembali otomatis dalam %1$d detik</string>
+    <string name="trial_saved">Setelan disimpan</string>
+    <string name="trial_saved_msg">Uji coba disimpan. Setelan berlaku tetap.</string>
+    <string name="trial_reverted_msg">Dikembalikan ke setelan semula</string>
+    <string name="trial_revert_fail">Gagal mengembalikan (Shizuku belum aktif). Coba lagi saat Shizuku aktif.</string>
+    <string name="trial_finish_first">Selesaikan uji coba dulu (SIMPAN / KEMBALIKAN)</string>
+    <string name="trial_read_failed">Gagal membaca setelan layar — uji coba dibatalkan</string>
+    <string name="trial_pending_block">Selesaikan uji coba dulu (SIMPAN / KEMBALIKAN)</string>
+    <string name="trial_leftover_reverted">Uji coba yang terputus telah dikembalikan ke setelan semula</string>
+    <string name="trial_inactive">Uji coba berakhir — kembali ke setelan semula</string>
+
+    <!-- Status -->
+    <string name="status_checking">Shizuku: memeriksa…</string>
+    <string name="status_not_running">Shizuku: TIDAK berjalan</string>
+    <string name="status_not_granted">Shizuku: berjalan, izin belum diberikan</string>
+    <string name="status_connecting">Shizuku: aktif, menghubungkan service…</string>
+    <string name="status_active">Shizuku: aktif</string>
+    <string name="size_unknown">tidak diketahui (Shizuku belum aktif)</string>
+    <string name="density_unknown">tidak diketahui</string>
+    <string name="current_size_density">Resolusi: %1$s | Density: %2$s</string>
+
+    <!-- Aksi -->
+    <string name="section_resolution">Pilih resolusi</string>
+    <string name="btn_360p">Kecilkan ke 360p</string>
+    <string name="btn_480p">Kecilkan ke 480p</string>
+    <string name="btn_540p">Kecilkan ke 540p</string>
+    <string name="btn_720p">Kecilkan ke 720p</string>
+    <string name="btn_1080p">Kecilkan ke 1080p</string>
+    <string name="warning_2k">Peringatan: 2K bisa ngelag saat gaming</string>
+    <string name="btn_reset">Reset ke resolusi asli</string>
+    <string name="btn_refresh">Refresh status</string>
+    <string name="section_profiles">Profil</string>
+    <string name="btn_save_profile">Simpan setelan sekarang sebagai profil</string>
+    <string name="section_density">Atur density (dpi)</string>
+    <string name="density_value">Density: %1$d dpi</string>
+
+    <!-- Tema & bahasa -->
+    <string name="theme_system">Tema: Sistem</string>
+    <string name="theme_dark">Tema: Gelap</string>
+    <string name="theme_light">Tema: Terang</string>
+    <string name="lang_system">Bahasa: Sistem</string>
+    <string name="lang_id">Bahasa: Indonesia</string>
+    <string name="lang_en">Bahasa: English</string>
+
+    <!-- Profil -->
+    <string name="profile_shizuku_inactive">(Shizuku belum aktif)</string>
+    <string name="profile_delete_title">Hapus profil?</string>
+    <string name="profile_delete">Hapus</string>
+    <string name="profile_cancel">Batal</string>
+    <string name="profile_saved">Profil tersimpan</string>
+    <string name="profile_save">Simpan</string>
+    <string name="profile_format">profil %1$s</string>
+    <string name="profile_name_hint">Nama profil, mis. Gaming 720p</string>
+    <string name="profile_save_title">Simpan profil (%1$dpx, %2$ddpi)</string>
+    <string name="profile_empty_name">Nama kosong</string>
+
+    <!-- Service / error -->
+    <string name="service_not_connected">Shizuku service belum terhubung, coba lagi.</string>
+    <string name="shizuku_not_running">Shizuku belum berjalan. Aktifkan Shizuku dulu (wireless debugging / adb).</string>
+
+    <!-- Kontrol PC -->
+    <string name="pc_trial_active">Redensity: uji coba sedang aktif — perintah PC ditolak</string>
+    <string name="pc_shizuku_inactive">Redensity PC: Shizuku tidak aktif di HP</string>
+    <string name="pc_reset_done">Redensity PC: kembali ke setelan bawaan</string>
+    <string name="btn_1440p">Besarkan ke 1440p (2K)</string>
+    <string name="warning_2k_title">Terapkan resolusi 2K?</string>
+    <string name="warning_2k_message">2K (QHD+) tidak disarankan untuk gaming — bisa ngelag. Tetap terapkan?</string>
+    <string name="warning_2k_apply">Tetap terapkan</string>
+    <string name="profile_empty">Belum ada profil</string>
+    <string name="size_override">%1$dx%2$d (override; awal %3$dx%4$d)</string>
+    <string name="trial_dialog_title">Pertahankan resolusi ini?</string>
+    <string name="apply_confirm_title">Terapkan resolusi ini?</string>
+    <string name="apply_confirm_message">%1$s\n\nDiuji coba 15 detik - kembali otomatis kalau diabaikan.</string>
+    <string name="apply_confirm_apply">Terapkan</string>
+    <string name="apply_confirm_detail">%1$dx%2$d @ %3$d dpi</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Redensity</string>
+
+    <!-- Trial -->
+    <string name="trial_applying">Applying trial: %1$s (15 seconds)</string>
+    <string name="trial_save">SAVE</string>
+    <string name="trial_revert">REVERT</string>
+    <string name="trial_countdown">Reverting automatically in %1$d seconds</string>
+    <string name="trial_saved">Settings saved</string>
+    <string name="trial_saved_msg">Trial saved. Settings are kept.</string>
+    <string name="trial_reverted_msg">Reverted to previous settings</string>
+    <string name="trial_revert_fail">Can\'t revert right now — Shizuku is not active. Try again.</string>
+    <string name="trial_finish_first">Finish the trial first (SAVE / REVERT)</string>
+    <string name="trial_read_failed">Failed to read screen settings — trial cancelled</string>
+    <string name="trial_pending_block">Finish the trial first (SAVE / REVERT)</string>
+    <string name="trial_leftover_reverted">An interrupted trial was reverted to the previous settings</string>
+    <string name="trial_inactive">Trial finished — back to previous settings</string>
+
+    <!-- Status -->
+    <string name="status_checking">Shizuku: checking…</string>
+    <string name="status_not_running">Shizuku: NOT running</string>
+    <string name="status_not_granted">Shizuku: running, permission not granted</string>
+    <string name="status_connecting">Shizuku: active, connecting service…</string>
+    <string name="status_active">Shizuku: active</string>
+    <string name="size_unknown">unknown (Shizuku not active)</string>
+    <string name="density_unknown">unknown</string>
+    <string name="current_size_density">Resolution: %1$s | Density: %2$s</string>
+
+    <!-- Actions -->
+    <string name="section_resolution">Resolution</string>
+    <string name="btn_360p">Scale to 360p</string>
+    <string name="btn_480p">Scale to 480p</string>
+    <string name="btn_540p">Scale to 540p</string>
+    <string name="btn_720p">Scale to 720p</string>
+    <string name="btn_1080p">Scale to 1080p</string>
+    <string name="warning_2k">Warning: 2K may cause gaming lag</string>
+    <string name="btn_reset">Reset to default resolution</string>
+    <string name="btn_refresh">Refresh status</string>
+    <string name="section_profiles">Profiles</string>
+    <string name="btn_save_profile">Save current settings as profile</string>
+    <string name="section_density">Adjust density (dpi)</string>
+    <string name="density_value">Density: %1$d dpi</string>
+
+    <!-- Theme & language -->
+    <string name="theme_system">Theme: System</string>
+    <string name="theme_dark">Theme: Dark</string>
+    <string name="theme_light">Theme: Light</string>
+    <string name="lang_system">Language: System</string>
+    <string name="lang_id">Language: Indonesia</string>
+    <string name="lang_en">Language: English</string>
+
+    <!-- Profiles -->
+    <string name="profile_shizuku_inactive">(Shizuku not active)</string>
+    <string name="profile_delete_title">Delete profile?</string>
+    <string name="profile_delete">Delete</string>
+    <string name="profile_cancel">Cancel</string>
+    <string name="profile_saved">Profile saved</string>
+    <string name="profile_save">Save</string>
+    <string name="profile_format">profile %1$s</string>
+    <string name="profile_name_hint">Profile name, e.g. Gaming 720p</string>
+    <string name="profile_save_title">Save profile (%1$dpx, %2$ddpi)</string>
+    <string name="profile_empty_name">Empty name</string>
+
+    <!-- Service / errors -->
+    <string name="service_not_connected">Shizuku service not connected, try again.</string>
+    <string name="shizuku_not_running">Shizuku is not running. Start Shizuku first (wireless debugging / adb).</string>
+
+    <!-- PC control -->
+    <string name="pc_trial_active">Redensity: trial active — PC command rejected</string>
+    <string name="pc_shizuku_inactive">Redensity PC: Shizuku not active on the phone</string>
+    <string name="pc_reset_done">Redensity PC: back to default settings</string>
+    <string name="btn_1440p">Scale to 1440p (2K)</string>
+    <string name="warning_2k_title">Apply 2K resolution?</string>
+    <string name="warning_2k_message">2K (QHD+) is not recommended for gaming — it may cause lag. Apply anyway?</string>
+    <string name="warning_2k_apply">Apply anyway</string>
+    <string name="profile_empty">No profiles yet</string>
+    <string name="size_override">%1$dx%2$d (override; original %3$dx%4$d)</string>
+    <string name="trial_dialog_title">Keep these display settings?</string>
+    <string name="apply_confirm_title">Apply this resolution?</string>
+    <string name="apply_confirm_message">%1$s\n\nTrial for 15 seconds - reverts automatically if ignored.</string>
+    <string name="apply_confirm_apply">Apply</string>
+    <string name="apply_confirm_detail">%1$dx%2$d @ %3$d dpi</string>
+</resources>

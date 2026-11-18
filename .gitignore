@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Local config & secrets (keystore, passwords)
+local.properties
+release.keystore
+*.keystore
+*.jks
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Android / Kotlin
+.kotlin/
+captures/
+
+# OS
+.DS_Store
+Thumbs.db
