@@ -1,13 +1,13 @@
-# Kontrol Redensity dari PC (id) / Redensity PC Control (en)
+# Kontrol Redensity Mobile dari PC (id) / Redensity Mobile PC Control (en)
 
 Tanpa root, lewat ADB. Semua perintah berlaku **langsung** (bukan mode uji coba 15 detik).
-Semua command requires Shizuku to be running on the phone with the Redensity app granted access.
+Semua command requires Shizuku to be running on the phone with the Redensity Mobile app granted access.
 
 > Disarankan: coba dulu `adb shell wm size` / `wm density` untuk lihat keadaan, dan `--es action reset` untuk kembali normal.
 
 ## Prasyarat / Prerequisites
 - Wireless debugging atau USB debugging aktif di HP
-- Redensity sudah terinstall + Shizuku berjalan (lihat README)
+- Redensity Mobile sudah terinstall + Shizuku berjalan (lihat README)
 - `adb` tersedia di PC
 
 ### USB
@@ -63,7 +63,7 @@ Semua contoh `am start -n com.redensity.app/.CommandActivity ...`, atau `am broa
 ---
 
 ## English summary
-Control Redensity from a PC via ADB — no root required. Commands apply immediately (no 15-second trial).
+Control Redensity Mobile from a PC via ADB — no root required. Commands apply immediately (no 15-second trial).
 
 Preferred path (works on strict ROMs like HyperOS): `adb shell am start -n com.redensity.app/.CommandActivity --es size 720x1600` (replace extras as needed: `--es size 720p`, `--ei density 254`, `--es profile "Gaming 720p"`, `--es action reset`).
 Fallback: broadcast to `com.redensity.app.COMMAND` (some ROMs block background broadcasts).

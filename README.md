@@ -1,12 +1,12 @@
-# Redensity
+# Redensity Mobile
 
 **English** · [Bahasa Indonesia](#bahasa-indonesia)
 
-Redensity is a free, open-source Android app to **scale down your screen resolution and density** (dpi) — e.g. to 720p / 540p — **without root**, using **Shizuku**. Perfect for older phones, saving battery, fixing laggy UIs, or making games/apps render lighter.
+Redensity Mobile is a free, open-source Android app to **scale down your screen resolution and density** (dpi) — e.g. to 720p / 540p — **without root**, using **Shizuku**. Perfect for older phones, saving battery, fixing laggy UIs, or making games/apps render lighter.
 
 Every change can be **previewed for 15 seconds** — if it doesn't look right, the screen reverts automatically.
 
-![Redensity](docs/screenshot-main.png)
+![Redensity Mobile](docs/screenshot-main.png)
 
 ## Features
 - No root required (works through [Shizuku](https://github.com/RikkaApps/Shizuku), or via ADB from a PC)
@@ -26,10 +26,10 @@ Every change can be **previewed for 15 seconds** — if it doesn't look right, t
 - Wireless debugging re-enables after every reboot — this is an Android limitation, not the app's
 
 ## Install
-1. Download `Redensity-v1.0.apk` from [Releases](../../releases).
+1. Download `RedensityMobile-v1.0.apk` from [Releases](../../releases).
 2. Install (you may need to allow "install from unknown sources").
 3. Install and start **Shizuku**.
-4. Open Redensity → grant Shizuku access when asked.
+4. Open Redensity Mobile → grant Shizuku access when asked.
 
 ## Usage
 1. Tap a preset (**360p** … **1440p**) (or slide density).
@@ -42,19 +42,19 @@ Every change can be **previewed for 15 seconds** — if it doesn't look right, t
 ## Build from source
 ```
 git clone <this repo>
-cd Redensity
+cd RedensityMobile
 ./gradlew assembleDebug     # or assembleRelease (needs release.keystore)
 ```
 Needs JDK 17 + Android SDK (compileSdk 35). See `local.properties.example` for the release signing layout (never commit `release.keystore` — it's in `.gitignore`).
 
 ## Safety
-Redensity only changes `wm size` / `wm density` — the same commands ADB shell uses. It can't brick your phone: revert any time in-app, or reboot (you may need Shizuku/`wm size reset` from a PC afterwards). Some ROMs may render oddly at low resolutions — that's what the 15 s trial is for.
+Redensity Mobile only changes `wm size` / `wm density` — the same commands ADB shell uses. It can't brick your phone: revert any time in-app, or reboot (you may need Shizuku/`wm size reset` from a PC afterwards). Some ROMs may render oddly at low resolutions — that's what the 15 s trial is for.
 
 ---
 
 # Bahasa Indonesia
 
-Redensity adalah aplikasi Android **gratis dan open source** untuk **mengecilkan resolusi dan density layar** (mis. ke 720p / 540p) — **tanpa root**, lewat **Shizuku**. Cocok untuk HP lama, menghemat baterai, atau memperingan UI yang berat.
+Redensity Mobile adalah aplikasi Android **gratis dan open source** untuk **mengecilkan resolusi dan density layar** (mis. ke 720p / 540p) — **tanpa root**, lewat **Shizuku**. Cocok untuk HP lama, menghemat baterai, atau memperingan UI yang berat.
 
 Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tidak cocok, tampilan kembali otomatis.
 
@@ -76,10 +76,10 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 - Wireless debugging perlu diaktifkan lagi setelah HP restart (keterbatasan Android, bukan app-nya)
 
 ## Instalasi
-1. Unduh `Redensity-v1.0.apk` dari [Releases](../../releases).
+1. Unduh `RedensityMobile-v1.0.apk` dari [Releases](../../releases).
 2. Install (izinkan "install dari sumber tidak dikenal" bila diminta).
 3. Install dan jalankan **Shizuku**.
-4. Buka Redensity → izinkan akses Shizuku.
+4. Buka Redensity Mobile → izinkan akses Shizuku.
 
 ## Cara pakai
 1. Ketuk preset (**360p** … **1440p**) (atau geser slider density).
@@ -91,13 +91,13 @@ Setiap perubahan bisa dicoba dulu lewat **mode uji coba 15 detik** — kalau tid
 ## Build dari source
 ```
 git clone <repo this>
-cd Redensity
+cd RedensityMobile
 ./gradlew assembleDebug     # atau assembleRelease (butuh release.keystore)
 ```
 Butuh JDK 17 + Android SDK (compileSdk 35). Lihat `local.properties.example`.
 
 ## Keamanan
-Redensity hanya mengubah `wm size` / `wm density` — perintah yang sama dipakai ADB shell. Tidak bisa merusak HP: kembalikan kapan pun lewat app, atau restart (setelah restart mungkin perlu `wm size reset` via PC). Beberapa ROM mungkin tampil aneh pada resolusi rendah — makanya ada uji coba 15 detik.
+Redensity Mobile hanya mengubah `wm size` / `wm density` — perintah yang sama dipakai ADB shell. Tidak bisa merusak HP: kembalikan kapan pun lewat app, atau restart (setelah restart mungkin perlu `wm size reset` via PC). Beberapa ROM mungkin tampil aneh pada resolusi rendah — makanya ada uji coba 15 detik.
 
 ## License
 MIT — lihat [LICENSE](LICENSE).
