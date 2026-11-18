@@ -237,7 +237,16 @@ class MainActivity : Activity() {
         refreshStatus()
     }
 
-    private fun isTrialPending(): Boolean = Trial.load(this) != null
+    private fun isTrialPending(): Boolean {
+        val snap = Trial.load(this) ?: return false
+        if (System.currentTimeMillis() >= snap.expiresAt) {
+            // Uji coba kedaluwarsa tapi snapshotnya masih ada (proses mati paksa/gagal bersih) —
+            // jangan blokir preset; biarkan RESET RESOLUSI yang membersihkan setelannya.
+            Trial.clear(this)
+            return false
+        }
+        return true
+    }
 
     /**
      * Dialog konfirmasi ala Windows: "Keep these display settings?" dengan hitung mundur.
