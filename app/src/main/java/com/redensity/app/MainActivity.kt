@@ -348,7 +348,7 @@ class MainActivity : Activity() {
         val sizeResult = sizeTarget?.let { exec(arrayOf("wm", "size", "${it.first}x${it.second}")) } ?: "(skip)"
         if (sizeResult.startsWith("Error") || densityResult.startsWith("Error")) {
             // Gagal terapan — rollback best effort dan batalkan uji coba.
-            exec(arrayOf("wm", "density", "reset"))
+            exec(arrayOf("wm", "density", DEFAULT_DENSITY.toString()))
             exec(arrayOf("wm", "size", "reset"))
             forceFullReconfigure()
             restartSystemUI()
@@ -477,18 +477,22 @@ class MainActivity : Activity() {
         }
     }
 
+    /** Density target untuk RESET RESOLUSI — "default" custom (setelan pabrik 440 tidak dipakai). */
+    private val DEFAULT_DENSITY = 400
+
     /**
      * Paksa dua siklus reconfigure setelah pindah ke default:
-     * tulis ulang nilai fisik sebagai override, lalu kosongkan lagi.
+     * tulis ulang ukuran fisik sebagai override, lalu kosongkan lagi.
      * Tanpa siklus kedua, HyperOS kadang menyimpan insets/gesture lama
      * (gejala: UI terasa = setelan lama, gesture bawah memicu asisten).
      */
     private fun forceFullReconfigure() {
         try {
-            physicalDensity().let { exec(arrayOf("wm", "density", it.toString())) }
             physicalSize()?.let { (w, h) -> exec(arrayOf("wm", "size", "${w}x${h}")) }
             exec(arrayOf("wm", "size", "reset"))
-            exec(arrayOf("wm", "density", "reset"))
+            // Density default custom (400), juga dibiarkan dua kali.
+            exec(arrayOf("wm", "density", DEFAULT_DENSITY.toString()))
+            exec(arrayOf("wm", "density", DEFAULT_DENSITY.toString()))
         } catch (_: Exception) {
             // Best effort — biarkan gagal diam-diam.
         }
@@ -613,7 +617,7 @@ class MainActivity : Activity() {
             480 -> 180
             540 -> 200
             720 -> 260
-            1080 -> native
+            1080 -> 400
             1440 -> 560
             else -> native
         }
@@ -789,12 +793,12 @@ class MainActivity : Activity() {
             if (Trial.load(this) != null) {
                 performRevert(getString(R.string.trial_reverted_msg))
             }
-            // Lalu reset ke bawaan, apapun kondisinya.
-            val densityResult = exec(arrayOf("wm", "density", "reset"))
+            // Lalu ke default custom, apapun kondisinya.
+            val densityResult = exec(arrayOf("wm", "density", DEFAULT_DENSITY.toString()))
             val sizeResult = exec(arrayOf("wm", "size", "reset"))
             forceFullReconfigure()
             restartSystemUI()
-            val message = "-> wm size reset\n$sizeResult\n-> wm density reset\n$densityResult\n-> SystemUI di-restart"
+            val message = "-> wm size reset\n$sizeResult\n-> wm density $DEFAULT_DENSITY\n$densityResult\n-> SystemUI di-restart"
             runOnUiThread {
                 hideTrialDialog()
                 showOutput(message)
